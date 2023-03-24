@@ -1,111 +1,346 @@
 
 
-/* 
-@media only screen and (max-width: 600px) {
+
+@media only screen and (min-width: 0px) and (max-width : 576px) {
 
 
-    #navbar {
-        height: 20%;
-        width : 100%;
-    
-        background-color: darkmagenta;
-    }
-  #search-box{
-    margin-left: 17%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding : 0.4%;
-    width: 30%;
-    border : 2px solid white;
-    border-radius: 10px;
+  #navbar {
+    height: 20%;
+    width : 100%;
+
+    background-color : darkmagenta;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    display : flex;
+    font-weight: 700;
+ 
+
+}
+#navbar img{
+  height : 1%;
+  width: 1%;
+  margin-left: 4%;
+}
+#navbar #home{
+  margin-top: 1%;
+  margin-left: 6%;
+  margin-right: 4%;
+}
+
+#home a,#Account a,#orders a{
+
+  text-decoration: none;
+  color : white
+
+}
+#navbar #search_form{
+
+  width: 100%;
+}
 
 
-  }
-  #search-box:focus {
-    outline: none;
-    /* border-color: white; */
-    /* box-shadow: 0 0 30px darkgray;
-  }
+#navbar #search_form #search-box{
+  width: 67%;
+  border : 4px solid white;
+  border-radius: 4px;
+}
 
-  #search-btn{
-    background-color: #15915f;
-    color: white;
-    
-    padding: 0.38%;
-    width: 10%;
-    border : 2px solid #15915f;
-   border-radius: 7px;
-  
-  }
-  #search-btn:hover{
-    background-color: hsl(156, 74%, 24%);
-    border : 2px solid hsl(156, 74%, 24%);
-  }
+#search-box:focus{
+  outline: none !important;
 
-  #search-btn:focus{
-    outline: none;
-  }
+
+}
+
+#navbar #search_form #search-btn{
+  background-color: green;
+  width: 25%;
+  padding: 0.4%;
+  border:2px solid green;
+  border-radius: 4px;
+ }
+
+
+#collapse img{
+  height: 40px;
+  width:40px;
+}
+
+
+#Account{
+  display: none;
+}
+#orders{
+  display: none;
+}
+
+#cart{
+  display: none;
+}
+
+
+ 
 
 
 
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 577px) and (max-width : 768px) {
+
+  #navbar {
+    height: 20%;
+    width : 100%;
+
+    background-color : darkmagenta;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    display : flex;
+    font-weight: 700;
+ 
+
+}
+#navbar img{
+  height : 1%;
+  width: 1%;
+  margin-left: 4%;
+}
+#navbar #home{
+  margin-left: 6%;
+  margin-right: 2%;
+}
+
+#home a,#Account a,#orders a{
+
+  text-decoration: none;
+  color : white
+
+}
+#navbar #search_form{
+
+  width: 100%;
+}
 
 
-    #navbar {
-        height: 20%;
-        width : 100%;
-    
-        background-color: darkmagenta;
-    }
-  #search-box{
-    margin-left: 17%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding : 0.4%;
-    width: 30%;
-    border : 2px solid white;
-    border-radius: 10px;
+#navbar #search_form #search-box{
+  width: 75%;
+  border : 4px solid white;
+  border-radius: 4px;
+}
+
+#search-box:focus{
+  outline: none !important;
 
 
-  }
-  #search-box:focus {
-    outline: none;
-    /* border-color: white; */
-    /* box-shadow: 0 0 30px darkgray;
-  }
+}
 
-  #search-btn{
-    background-color: #15915f;
-    color: white;
-    
-    padding: 0.38%;
-    width: 10%;
-    border : 2px solid #15915f;
-   border-radius: 7px;
+#navbar #search_form #search-btn{
+  background-color: green;
+  width: 14%;
+  padding: 0.4%;
+  border:2px solid green;
+  border-radius: 4px;
+ }
+
+
+#collapse img{
+  height: 40px;
+  width:40px;
+}
+
+
+#Account{
+  display: none;
+}
+#orders{
+  display: none;
+}
+
+#cart{
+  display: none;
+}
+
+
+
+
+
+
+
   
-  }
-  #search-btn:hover{
-    background-color: hsl(156, 74%, 24%);
-    border : 2px solid hsl(156, 74%, 24%);
-  }
-
-  #search-btn:focus{
-    outline: none;
-  }
 
 
-} */
+} 
+@media only screen and (min-width: 769px) and (max-width : 992px){
 
 
-/* @media only screen and (min-width: 992px) {
+  #navbar {
+    height: 20%;
+    width : 100%;
+
+    background-color : darkmagenta;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    display: flex;
+
+  
+    font-weight: 700;
+ 
+
+}
+#navbar img{
+  height : 1%;
+  width: 1%;
+  margin-left: 4%;
+}
+#navbar #search_form{
+  width: 70%;
+}
+#navbar #home{
+  margin-left: 9%;
+  margin-right: 4%;
+
+}
+
+#navbar #home a{
+  text-decoration: none;
+  color: white;
+}
+#navbar #search_form #search-box{
+  width: 80%;
+}
+
+#navbar #search_form #search-btn{
+  background-color: green;
+  width: 14%;
+  padding: 0.4%;
+  border:2px solid green;
+  border-radius: 4px;
+ }
+
+#collapse{
+  margin-left: 1px;
+  margin-right: 1px;
+}
+#collapse img{
+  height: 40px;
+  width:40px;
+}
+
+
+
+#Account{
+  display: none;
+}
+#orders{
+  display: none;
+}
+
+#cart{
+  display: none;
+}
+
+
+
+}
+
+
+
+
+
+
+ @media only screen and (min-width: 993px) and (max-width : 1200px){
+
+
+
+  #navbar {
+    height: 20%;
+    width : 100%;
+
+    background-color : darkmagenta;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    display : flex;
+    font-weight: 700;
+ 
+
+}
+#navbar img{
+  height : 1%;
+  width: 1%;
+  margin-left: 4%;
+}
+#navbar #home{
+  margin-left: 6%;
+  margin-right: 2%;
+}
+
+#home a,#Account a,#orders a{
+
+  text-decoration: none;
+  color : white
+
+}
+#navbar #search_form{
+
+  width: 100%;
+}
+
+
+#navbar #search_form #search-box{
+  width: 80%;
+  border : 4px solid white;
+  border-radius: 4px;
+}
+
+#search-box:focus{
+  outline: none !important;
+
+
+}
+
+#navbar #search_form #search-btn{
+  background-color: green;
+  width: 14%;
+  padding: 0.4%;
+  border:2px solid green;
+  border-radius: 4px;
+ }
+
+ #navbar #Account{
+  margin-left: 2%;
+  margin-right: 3%;
+}
+
+ #navbar #orders{
+  margin-right: 3%;
+}
+
+#cart{
+  margin-right: -20%;
+}
+
+
+
+
+#cart a{
+text-decoration: none;
+}
+
+
+#cart img{
+height: 70%;
+width : 17%;
+}
+
+#collapse img{
+visibility: hidden;
+}
+
+
 
 
    
 
-} */
+} 
 
 
 
@@ -120,7 +355,7 @@
 
 
 
- @media only screen and (min-width: 1200px) {
+ @media only screen and (min-width: 1201px)  and (max-width : 1400px){
 
 
     #navbar {
@@ -177,12 +412,16 @@
      }
 
      #navbar #Account{
-      margin-left: 5%;
+      margin-left: 2%;
       margin-right: 6%;
     }
 
      #navbar #orders{
       margin-right: 5%;
+    }
+
+    #cart{
+      margin-right: -13%;
     }
 
 #cart a{
@@ -194,6 +433,13 @@
     height: 80%;
     width : 20%;
  };
+
+ #collapse{
+  display: none;
+  visibility: none;
+ }
+
+
 
 
 
