@@ -27,7 +27,7 @@
   margin-right: 4%;
 }
 
-#home a,#Account a,#orders a{
+#home a{
 
   text-decoration: none;
   color : white
@@ -70,11 +70,15 @@
   display: none;
 }
 #orders{
-  display: none;
+   display: none;
 }
 
 #cart{
-  display: none;
+display: none;
+}
+
+.side-bar{
+  color: red;
 }
 
 
@@ -109,7 +113,7 @@
   margin-right: 2%;
 }
 
-#home a,#Account a,#orders a{
+#home a{
 
   text-decoration: none;
   color : white
@@ -152,7 +156,7 @@
   display: none;
 }
 #orders{
-  display: none;
+   display : none;
 }
 
 #cart{
@@ -421,7 +425,7 @@ visibility: hidden;
     }
 
     #cart{
-      margin-right: -13%;
+      margin-right: 0%;
     }
 
 #cart a{
@@ -453,4 +457,20 @@ visibility: hidden;
  
 
 }
+
+#cart-img2{
+  height: 10%;
+  width : 10%;
+}
+
+#header{
+  background-color: darkmagenta;
+}
+
+#canvas-body{
+
+  background-color: darkmagenta;
+
+}
+
 
