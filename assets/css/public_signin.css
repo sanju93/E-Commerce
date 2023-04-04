@@ -1,5 +1,5 @@
 #container{
-  background-color: whitesmoke;
+  background-color: rgba(252, 246, 246, 0.144);
  
 }
 #form{
@@ -297,7 +297,7 @@
         margin-left: 80px;
         box-shadow: 0 0 0 2px rgb(255, 255, 255),
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-        border-radius: 3px;
+        border-radius: 6px;
       
      
       
@@ -574,12 +574,12 @@
 
     #container{
         height: 50%;
-        width: 60%;
-        margin-top: 3px;
-        margin-left: 235px;
+        width: 40%;
+        margin-top: 12px;
+        margin-left: 400px;
         box-shadow: 0 0 0 2px rgb(255, 255, 255),
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-        border-radius: 3px;
+        border-radius: 6px;
       
      
       
@@ -595,9 +595,12 @@
     }
     #email {
 
-        margin-left: 5%;
+        margin-left: 8%;
 
     }
+  #password{
+    margin-left: 1%;
+  }
 
   .signIn{
     padding: 1%;
@@ -643,7 +646,7 @@
   }
   
   #create_btn{
-    margin-left: 36%;
+    margin-left: 30%;
     background-color : darkmagenta;
     border:2px solid darkmagenta;
     color:white;
@@ -688,9 +691,10 @@
 
   }
   .login_methods span{
-    font-weight: 500;
-    font-size: large;
+    font-weight: 300;
+    font-size:medium;
     color: black;
+    font-family:cursive;
   }
 
   
