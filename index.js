@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
 const port = 8000;
+require('./config/mongoose');
 const routes = require('./routes/index');
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+app.use(express.urlencoded());
+app.use(express.json());
 
 
 //views and static files setup
