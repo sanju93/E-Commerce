@@ -5,15 +5,31 @@
 
 <form id = "form">
 
-    <label for="name">Name:</label>
-    <input type = "text" placeholder="Enter yoour name" id = "name" name = "name">
+    <div class="text_fields"> 
+         <label for="name">Name:</label>
+        <input type = "text" placeholder="Enter your name..." id = "name" class="signIn" name = "name">
+    </div>
+  <div class="text_fields">
     <label for = "email" >Email:</label>
-    <input type = "email" placeholder="Enter your email" id = "email" name = "email"> 
-    <label for = "password">Password:</label>
-    <input type = "password" id = "password" name = "password">
-    <label for = "confirm_password" >Confirm Password:</label>
-    <input type = "password" id = "confirm_password" name = "confirm_password">
-    <input type = "submit" value = "SignUp">
+    <input type = "email" placeholder="Enter your email..." id = "email" class="signIn" name = "email">
+</div>
+     <div class="text_fields"> 
+      <label for = "password">Password:</label>
+      <input type = "password" id = "password" class="signIn" name = "password">
+    </div>
+
+    <div class="text_fields">
+
+        <label for = "confirm_password" >Confirm Password:</label>
+        <input type = "password" id = "confirm_password" class="signIn" name = "confirm_password">
+
+    </div>
+ 
+    <div id = "submit_div">
+        <input type = "submit" value = "SignUp">
+    </div>
+   
+    
 
 
 </form>
