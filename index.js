@@ -4,6 +4,11 @@ const port = 8000;
 require('./config/mongoose');
 const routes = require('./routes/index');
 const cookieParser = require('cookie-parser');
+const passport = require('passport');
+require('./config/passport-local-strategy');
+const expressSession = require('express-session');
+const mongostore = require('connect-mongo');
+require('dotenv').config();
 app.use(cookieParser());
 app.use(express.urlencoded());
 app.use(express.json());
@@ -17,6 +22,21 @@ app.set('layout extractScripts',true);
 app.set('view engine','ejs');
 app.set('views',__dirname + '/views');
 app.use(express.static('./assets'));
+
+app.use(expressSession({
+    name : 'E-Commerce',
+    secret : 'E-Commerce93',
+    cookie: {
+        maxAge : 1000 * 60 * 60 * 24  
+    },
+    store : mongostore.create({mongoUrl : process.env.MongodbUrl})
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(passport.setAuthenticated);
+
+
 
 
 

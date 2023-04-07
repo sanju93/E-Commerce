@@ -1,4 +1,6 @@
 const User = require('../models/User');
+
+
 module.exports.PublicSignUp = (req,res) => {
     return res.render('public_signup',{
         title : "SignUp"
@@ -10,6 +12,9 @@ module.exports.public_sign_in = (req,res) => {
         title : 'SignIn'
     });
 }
+
+
+
 
 module.exports.public_sign_up = async (req,res) => {
 
@@ -59,3 +64,28 @@ module.exports.public_sign_up = async (req,res) => {
       
     
 }
+
+module.exports.public_sign_in_post = async (req,res) => {
+    
+    return res.redirect('/users/profile');
+   
+}
+
+
+module.exports.profile = (req,res) => {
+  
+    return res.render('profile',{
+        title : "profile"
+    })
+}
+
+module.exports.logout = (req,res) => {
+    req.logout((err) => {
+        if(err) {
+            return err;
+        }
+    })
+    return res.redirect('/users/public_sign_in');
+}
+
+
