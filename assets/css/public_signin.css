@@ -645,8 +645,9 @@
     text-align: center;
   }
   
-  #create_btn{
-    margin-left: 37%;
+  .create_btn{
+   
+    margin-left: 6%;
     background-color : darkmagenta;
     border:2px solid darkmagenta;
     color:white;
@@ -658,9 +659,12 @@
    
   
   }
-  #create_btn:hover{
+  .create_btn:hover{
     color:lightgrey;
     
+  }
+  #sign_up{
+    margin-left : 24%;
   }
   .login_methods{
     border: 2px solid white;

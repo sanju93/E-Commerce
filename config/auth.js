@@ -1,6 +1,6 @@
 
 module.exports.login =(req,res,next) => {
-  
+
   if (req.isAuthenticated()){
     return next();
   }else{

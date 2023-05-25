@@ -16,7 +16,14 @@ var userSchema = new mongoose.Schema({
     confirm_password : {
         type : String,
         required : true
+    },
+    cart : [
+        {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Product'
     }
+    ]
+   
 },{
     timestamps:true
 });

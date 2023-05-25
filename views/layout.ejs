@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
     <link rel = "stylesheet" href="/css/layout.css">
     <%- style %>
 </head>
@@ -16,7 +18,7 @@
   
         <img src = "/images/logo.png">
 
-      <div id = "home"><a href="#" >Home</a></div>
+      <div id = "home"><a href="/">Home</a></div>
 
         <div id = "search_form">
         <input type="text" id = "search-box" placeholder="Search...">
@@ -24,12 +26,31 @@
         </div>
        <% if (locals.user){  %>
 
-            <div id = "Account"> <a href="#" ><%= locals.user.name %></a> </div>
+            <div id = "Account">
+                 <a href="#" onclick="handleClick()">
+                    <%= locals.user.name %> 
+                 </a>
+
+                <div id = "User">
+                    <% if (locals.user.email === "sanjay139474@gmail.com") {%>
+                    <a href = "/users/AdminProfile"><p>your profile</p></a>
+                    <% }else { %>
+                        <a href = "/users/profile/<%= locals.user.id %>"><p>Your Profile</p></a>
+                        <% } %>
+                    <a href="/users/logout"><p> logout </p></a>
+                 </div>
+                 
+             </div>
+
+           
 
 
        <% }else{ %>
 
-            <div id = "Account"> <a href="/users/public_sign_in">Account</a></div>
+            <div id = "Account"> 
+                <a href="/users/public_sign_in">Account</a>
+               
+            </div>
 
 
         <%}%>
@@ -37,8 +58,11 @@
        <div id = "orders"> <a href="#" >Your Orders</a> </div>
 
        <div id="cart">
-        <a href="#">
-            <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" >
+        <a href="/users/products/cart">
+            <img src = "https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style = "position: relative;">
+            <% if (locals.user) {%>
+            <span style = "position : absolute; top : 20%; right: 11.7%; color : white; border-radius: 40%;"><%= locals.user.cart.length %></span>
+            <%}%>
         </a>
             <span style ="color : white; margin-top : 10px;">Cart</span>
         </div>
@@ -48,6 +72,7 @@
         </div>
 
     </div>
+  
 
 
     <!-- <button class="btn btn-primary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Toggle offcanvas</button> -->
@@ -84,8 +109,56 @@
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
 
-    <%- script %>
     <script src="/js/layout.js"></script>
+    <%- script %>
+   
+  
+    <script>
+        <% if (flash.success && flash.success.length > 0) {%>
+            new Noty({
+                text : '<%= flash.success %>',
+                timeout : 2000,
+                theme : 'relax',
+                type :'success'
+            }).show();
+        <% } else if (flash.error && flash.error.length > 0) {%>
+            new Noty({
+                text : '<%= flash.error %>',
+                timeout : 2000,
+                theme : 'relax',
+                type : 'error'
+            }).show();
+        <% } else if (flash.info && flash.info.length > 0){ %>
+
+            new Noty({
+                text : '<%= flash.info %>',
+                timeout : 2000,
+                theme : 'relax',
+                type : 'info'
+            }).show();
+
+        <% } else if (flash.alert && flash.alert.length > 0) {%>
+                 new Noty({
+                    theme : 'relax',
+                    timeout : 2000,
+                    type : 'alert',
+                    text : '<%= flash.alert %>'
+                 }).show();
+        <% }else if(flash.warning && flash.warning.length > 0){%>
+
+            new Noty({
+                theme : 'relax',
+                timeout : 2000,
+                type : 'warning',
+                text : '<%= flash.warning %>'
+            }).show();
+
+
+        <% } %>
+    
+    </script>
+   
 </body>
 </html>

@@ -423,6 +423,18 @@ visibility: hidden;
      #navbar #Account{
       margin-left: 2%;
       margin-right: 6%;
+      position: relative;
+    }
+
+    #User{
+      position : absolute;
+      left: 0%;
+      right: 0%;
+    
+     
+    }
+    #User a{
+      color : black;
     }
 
      #navbar #orders{

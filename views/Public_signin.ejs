@@ -3,7 +3,7 @@
 
     <h3>Sign In</h3>
 
-    <form id = "form"   action="/users/public_sign_in_post" method = "post">
+    <form id = "form" action="/users/public_sign_in_post" method = "post">
     
     
         <div id = "email_div">
@@ -14,6 +14,9 @@
         <label for = "password">Password:</label>
         <input type = "password" id = "password" name = "password" class="signIn" required>
         </div>
+        <div>
+           <a href = "/users/forgotPassword"> <p>Don't Know Password?</p> </a>
+        </div>
         <div id = "submit_div">
         <input type = "submit" value = "SignIn">
         </div>
@@ -23,7 +26,7 @@
 
     <div class="login_methods">
 
-<a href="#"> 
+<a href="/users/auth/google"> 
     <span >
         <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png">
         <span>Continue With Google</span>
@@ -32,19 +35,15 @@
     </div>
 
 
-    <div class="login_methods">
-        <a href="#">
-    <span>
-        <img src="https://cdn-icons-png.flaticon.com/512/2504/2504903.png">
-        <span>Continue With Facebook</span>
-    </span>
-    </a>
-    </div>
+  
    
    
 
     <p id = "new_user">-------------------New User?-------------------</p>
+<div id = "sign_up">
+    <a href="/users/public_sign_up"><button class = "create_btn">Create your E-Mall Account</button></a>
 
-    <a href="/users/public_sign_up"><button id = "create_btn">Create your E-Mall Account</button></a>
+    <a href = '/users/admin_sign_in'><button class = "create_btn">For Admins</button></a>
+</div>
     
     </div>

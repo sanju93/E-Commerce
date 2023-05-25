@@ -6,8 +6,10 @@ const routes = require('./routes/index');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 require('./config/passport-local-strategy');
+require('./config/passport-google-strategy');
 const expressSession = require('express-session');
 const mongostore = require('connect-mongo');
+const flash = require('connect-flash');
 require('dotenv').config();
 app.use(cookieParser());
 app.use(express.urlencoded());
@@ -37,13 +39,24 @@ app.use(passport.session());
 app.use(passport.setAuthenticated);
 
 
+app.use(flash());
+
+app.use(require('./config/flashMiddleware').flash);
+
+let fileUpload = require('express-fileupload');
+
+app.use(fileUpload());
+
+
+
 
 
 
 
 app.use('/',routes);
 
-
+// clientId : "1090406195685-dhh1hegavmek6s2bb9rnl1rng27ol9uo.apps.googleusercontent.com"
+//client secret : "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"
 
 
 

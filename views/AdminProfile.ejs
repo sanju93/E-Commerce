@@ -1,0 +1,126 @@
+<link rel = "stylesheet" href="/css/AdminProfile.css">
+
+
+
+
+<p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+      Add Products
+    </button>
+  </p>
+  <div style="min-height: 120px; position: absolute; left: 20%; top: 14%;">
+    <div class="collapse collapse-vertical" id="collapseWidthExample">
+      <div class="card card-body" style="width: 800px;">
+        <form action = "/users/AddProductPost" enctype="multipart/form-data" method="post">
+            <div class="container">
+                <div class="row my-2">
+
+                <div class="col-3"><label for = "name">Name of the Product</label> </div>
+                  <div class="col-9"><input type = "text" placeholder="name of the Product" class="form-control" name = "name" id = "name"></div>
+
+                </div>
+        
+               <div class="row my-2">
+                <div class="col-3"><label for = "picture">Picture of the Products</label></div>
+               <div class="col-9"> <input type = "file" id="picture" class="form-control" accept="image/*" name = "product_img"></div>
+               </div>
+               <div class="row my-2">
+               <div class="col-3"> <label for = "types">Select the Type of Sports</label></div>
+                <div class="col-9"><select name = "types" id = "types" class="form-control">
+
+                    <option value = "Cricket">Cricket</option>
+                    <option value = "Football">Football</option>
+                    <option value = "VolleyBall">VolleyBall</option>
+                    <option value = "Hockey">Hockey</option>
+                    <option value = "BaseBall">BaseBall</option>
+                    <option value = "Rugby">Rugby</option>
+
+                </select>
+                </div>
+
+                </div>
+
+                <div class="row my-2">
+
+                <div class = "col-3"><label for = "price">Price</label></div>
+
+                <div class="col-9"><input type = "text" placeholder="Price of the Product" name = "price" id = "price" class="form-control"></div>
+                </div>
+
+                <div class="row my-2">
+
+                    <div class="col-3">
+                        <label for="Brand">Brand</label>
+                    </div>
+
+                    <div class="col-9">
+                        <input type = "text" placeholder="Enter the Brand of the Product" id = "Brand" name = "Brand" class="form-control">
+                    </div>
+
+                </div>
+
+                <div class="row my-2">
+
+                    <div class="col-3">
+                        <label for="Colour">Colour</label>
+                    </div>
+
+                    <div class="col-9">
+                        <input type = "text" placeholder="Enter the Colour of the Product" id = "Colour" name = "colour" class="form-control">
+                    </div>
+
+                </div>
+
+                <div class="row my-2">
+
+                    <div class="col-3">
+                        <label for="weight">Product Weight</label>
+                    </div>
+
+                    <div class="col-9">
+                        <input type = "text" placeholder="Enter the weight of the Product" id = "weight" name = "weight" class="form-control">
+                    </div>
+
+                </div>
+
+                <div class="row my-2">
+
+                    <div class="col-3">
+                        <label for="size">Size</label>
+                    </div>
+
+                    <div class="col-9">
+                        <input type = "text" placeholder="Enter the Size of the Product" id = "size" name = "size" class="form-control">
+                    </div>
+
+                </div>
+
+                <div class="row my-2">
+
+                    <div class="col-3">
+                        <label for="quantity">Quantity</label>
+                    </div>
+
+                    <div class="col-9">
+                        <input type = "text" placeholder="Enter the Quantity of the Product" id = "quantity" name = "quantity" class="form-control">
+                    </div>
+
+                </div>
+
+               <div class="row my-2">
+                <div class="col-6"> <input type = "submit" value = "Add Product" class="btn btn-success"></div>
+               </div>
+
+            </div>
+            
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<script src = "/js/AdminProfile.js"></script>

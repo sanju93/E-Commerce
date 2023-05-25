@@ -1,15 +1,34 @@
 const passport = require('passport');
 const passportLocal = require('passport-local').Strategy;
 const User = require('../models/User');
-
-
+const Admin = require('../models/Admin');
+require('dotenv').config();
 passport.use(new passportLocal({usernameField : 'email'},async (email,password,done) => {
-    try{
+   try{
+        if (email == process.env.AdminEmail){
 
-        var user = await User.findOne({email : email});
-        if (user) {
+             var admin = await Admin.findOne({email : email});
 
-            if (user.password != password){
+            if (admin) {
+                if (admin.password !== password) {
+                    return done(null,false);
+                }else{
+                   
+                    return done(null,admin);
+
+                }
+                
+            }else{
+              return done(null,false);    
+            }
+
+
+        }else{
+             
+          var user = await User.findOne({email : email});
+           if (user) {
+
+            if (user.password !== password){
                 return done(null,false);
             }else{
                 return done(null,user);
@@ -18,6 +37,10 @@ passport.use(new passportLocal({usernameField : 'email'},async (email,password,d
         }else{
             return done(null,false);
         }
+
+        }
+
+        
 
     }catch(err){
 
@@ -29,20 +52,32 @@ passport.use(new passportLocal({usernameField : 'email'},async (email,password,d
 
 
 passport.serializeUser((user,done) => {
-    return done(null,user.id);
+    return done(null,user.email);
 })
 
-passport.deserializeUser(async (id , done) => {
+passport.deserializeUser(async (email , done) => {
+    if (email == process.env.AdminEmail) {
 
+        var admin = await Admin.findOne({email : email});
+        if (admin) {
+            return done(null,admin);
+        }else{
+            return done(null,false);
+        }
 
-    var user = await User.findById(id);
-
-    if (user) 
-    {
-        return done(null,user);
     }else{
-        return done(null,false);
+        var user = await User.findOne({email : email});
+        if (user) 
+        {
+            return done(null,user);
+        }else{
+            return done(null,false);
+        }
+        
     }
+   
+
+  
 })
 
 passport.setAuthenticated = (req,res,next) => {
