@@ -55,8 +55,7 @@ app.use(fileUpload());
 
 app.use('/',routes);
 
-// clientId : "1090406195685-dhh1hegavmek6s2bb9rnl1rng27ol9uo.apps.googleusercontent.com"
-//client secret : "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"
+
 
 
 

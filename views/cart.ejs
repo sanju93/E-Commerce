@@ -1,20 +1,87 @@
 <link rel = "stylesheet" href = "/css/cart.css">
 
+<% if (locals.cart){ %>
+
+   <%if (cart.length === 0) {%>
+
+      <h1>Cart is Empty </h1>
+
+   <%}%>
+
+   <% for (var j = 0; j < cart.length; j++) {%>
+
+      <section class = "main">
+   
+       <div class = "product-card" id = "<%= cart[j]._id %>">
+
+         <div class = "left">
+
+            <img alt="poster" src='/images/products_images/<%= cart[j].sportType %>/<%= cart[j].image %>' />
 
 
-<% for (var j = 0; j < cart.length; j++) {%>
 
-   <section id = "container">
+         </div>
 
-    <div id = "card">
+         <div class = "right">
 
+            <div class = "name"><%=cart[j].name%></div>
+            <div class = "price">Price: <%= cart[j].price%>Rs</div>
+
+            <div class = "footer">
+
+               <button class = "buy">Buy Now</button>
+               <button class = "delete" id = "<%= cart[j]._id %>">Delete</button>
+
+            </div>
+            
+
+         </div>
+
+         
+   
+   
+   
+       </div>
+   
+      </section>
+
+ 
+   
+     
+   
+   
+   <%}%>
+
+   <div class = "footer-price">
+
+      <% var price = 0 %>
+
+      <% for (var i = 0; i < cart.length; i++) {%>
+
+         <% price  =  price  + Number(cart[i].price) %>
+
+
+         
+         
       
+      
+      <%}%>
 
-    </div>
+      <p>Total: <%= price %>Rs</p>
 
-   </section>
-
-  
+   </div>
 
 
-<%}%>
+
+<% }else{ %>
+
+
+   <h1>No products on the cart</h1>
+
+
+<% } %>
+
+
+
+<script src = '/js/cart.js'></script>
+

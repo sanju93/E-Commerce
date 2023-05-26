@@ -1,3 +1,6 @@
+#products{
+    margin-top: 1%;
+}
 .products_container{
     height : 100%;
     width : 99%;
@@ -16,12 +19,59 @@
 }
 
 .cards img{
-    height : 50%;
-    width : 50%;
+    height : 80%;
+    width : 30%;
 }
 
 .cards p{
     text-decoration: underline;
     font-weight: 800;
    
+}
+
+.Cartbtn{ 
+    
+    color : white;
+    background-color: darkmagenta;
+    font-weight: 500;
+    
+    border-radius: 5px;
+    width: 40%;
+    border: 1px solid darkmagenta;
+    padding: 1%;
+    margin-left: 2%;
+    font-size: medium;
+
+
+  
+
+
+
+}
+
+.Buybtn{
+
+    color : white;
+    background-color: darkmagenta;
+    font-weight: 500;
+    
+    border-radius: 5px;
+    width: 25%;
+    border: 1px solid darkmagenta;
+    padding: 1%;
+    margin-left: 2%;
+    font-size: medium;
+
+}
+
+
+.sport-type{
+    background-color: darkmagenta;
+    padding : 1%;
+    width : 30%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: white;
+    font-size: xx-large;
+    font-weight: 500;
 }

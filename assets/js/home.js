@@ -40,6 +40,13 @@ window.addEventListener('load',async function(){
 
         
         card.setAttribute('class','cards');
+
+        
+       
+       
+
+
+      
         
 
         let name = Cricket[i].name;
@@ -58,16 +65,23 @@ window.addEventListener('load',async function(){
         price_para.innerHTML = 'INR.' + price;
 
 
-        var cartButton = document.createElement('button');
-        cartButton.innerHTML = "Add to Cart";
-        cartButton.setAttribute('class','btn btn-info mx-2');
-        cartButton.setAttribute('id',`${Cricket[i]._id}`);
+        var Cartbtn = document.createElement('button');
+        Cartbtn.innerHTML = "Add to Cart";
+        Cartbtn.setAttribute('class','Cartbtn');
+
+        
+
+        var Buybtn = document.createElement('button');
+        Buybtn.innerHTML = "Buy";
+        Buybtn.setAttribute('class','Buybtn');
+
+        Cartbtn.setAttribute('id',`${Cricket[i]._id}`);
         
        
 
       
 
-            cartButton.addEventListener('click',async function(e){
+            Cartbtn.addEventListener('click',async function(e){
 
                 var id = e.target.getAttribute('id');
            
@@ -93,22 +107,100 @@ window.addEventListener('load',async function(){
     
             })
 
+            Buybtn.setAttribute('id',`${Cricket[i]._id}`);
+
+         
+
+            Buybtn.addEventListener('click',async function(e){
+
+               var id = e.target.getAttribute('id');
+               
+
+               
+               
+               var res = await fetch(`/users/products/create/OrderId`,{
+                method : 'POST',
+                timeout : 0,
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({
+                    id : id
+                })
+                
+               })
+
+
+               var data = await res.json();
+
+
+
+   
+
+var options = {
+    "key": "rzp_test_4qPYOwauKaJykT", // Enter the Key ID generated from the Dashboard
+    "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": data.orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9000090000"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+
+
+              
+
+
+
+            })
+
+
+          
+
         
 
      
 
-        var buyButton = document.createElement('button');
-        buyButton.innerHTML = "Buy";
-
-        buyButton.setAttribute('class','btn btn-info mx-2');
 
         
 
         card.appendChild(product_img);
         card.appendChild(product_name);
         card.appendChild(price_para);
-        price_para.appendChild(cartButton);
-        price_para.appendChild(buyButton);
+
+        price_para.appendChild(Cartbtn);
+        price_para.appendChild(Buybtn);
+
 
 
         
@@ -152,6 +244,50 @@ window.addEventListener('load',async function(){
         card.appendChild(product_name);
         card.appendChild(price_para);
 
+        var Cartbtn = document.createElement('button');
+        Cartbtn.innerHTML = "Add to Cart";
+        Cartbtn.setAttribute('class','Cartbtn');
+
+
+        Cartbtn.setAttribute('id',`${FootBall[i]._id}`);
+        
+       
+
+      
+
+        Cartbtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+       
+
+            var res = await fetch('/users/products/AddtoCart',{
+                method : 'post',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({id : id})
+            })
+
+            var data = await res.json();
+
+            if (data.success == true) {
+                location.reload();
+            }
+
+         
+            
+            
+            
+
+        })
+
+        var Buybtn = document.createElement('button');
+        Buybtn.innerHTML = "Buy";
+        Buybtn.setAttribute('class','Buybtn');
+
+        price_para.appendChild(Cartbtn);
+        price_para.appendChild(Buybtn);
+
         
 
 
@@ -194,6 +330,53 @@ window.addEventListener('load',async function(){
         card.appendChild(product_name);
         card.appendChild(price_para);
 
+
+        var Cartbtn = document.createElement('button');
+        Cartbtn.innerHTML = "Add to Cart";
+        Cartbtn.setAttribute('class','Cartbtn');
+
+
+        Cartbtn.setAttribute('id',`${VolleyBall[i]._id}`);
+        
+       
+
+      
+
+        Cartbtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+       
+
+            var res = await fetch('/users/products/AddtoCart',{
+                method : 'post',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({id : id})
+            })
+
+            var data = await res.json();
+
+            if (data.success == true) {
+                location.reload();
+            }
+
+         
+            
+            
+            
+
+        })
+
+        
+
+        var Buybtn = document.createElement('button');
+        Buybtn.innerHTML = "Buy";
+        Buybtn.setAttribute('class','Buybtn');
+
+        price_para.appendChild(Cartbtn);
+        price_para.appendChild(Buybtn);
+
         
 
 
@@ -233,6 +416,49 @@ window.addEventListener('load',async function(){
         card.appendChild(product_img);
         card.appendChild(product_name);
         card.appendChild(price_para);
+
+        var Cartbtn = document.createElement('button');
+        Cartbtn.innerHTML = "Add to Cart";
+        Cartbtn.setAttribute('class','Cartbtn');
+
+        Cartbtn.setAttribute('id',`${Hockey[i]._id}`);
+        
+       
+
+      
+
+        Cartbtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+       
+
+            var res = await fetch('/users/products/AddtoCart',{
+                method : 'post',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({id : id})
+            })
+
+            var data = await res.json();
+
+            if (data.success == true) {
+                location.reload();
+            }
+
+         
+            
+            
+            
+
+        })
+
+        var Buybtn = document.createElement('button');
+        Buybtn.innerHTML = "Buy";
+        Buybtn.setAttribute('class','Buybtn');
+
+        price_para.appendChild(Cartbtn);
+        price_para.appendChild(Buybtn);
 
         
 
@@ -276,6 +502,50 @@ window.addEventListener('load',async function(){
         card.appendChild(product_name);
         card.appendChild(price_para);
 
+        var Cartbtn = document.createElement('button');
+        Cartbtn.innerHTML = "Add to Cart";
+        Cartbtn.setAttribute('class','Cartbtn');
+
+
+        Cartbtn.setAttribute('id',`${BaseBall[i]._id}`);
+        
+       
+
+      
+
+        Cartbtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+       
+
+            var res = await fetch('/users/products/AddtoCart',{
+                method : 'post',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({id : id})
+            })
+
+            var data = await res.json();
+
+            if (data.success == true) {
+                location.reload();
+            }
+
+         
+            
+            
+            
+
+        })
+
+        var Buybtn = document.createElement('button');
+        Buybtn.innerHTML = "Buy";
+        Buybtn.setAttribute('class','Buybtn');
+
+        price_para.appendChild(Cartbtn);
+        price_para.appendChild(Buybtn);
+
         
 
 
@@ -316,6 +586,50 @@ window.addEventListener('load',async function(){
         card.appendChild(product_img);
         card.appendChild(product_name);
         card.appendChild(price_para);
+
+        var Cartbtn = document.createElement('button');
+        Cartbtn.innerHTML = "Add to Cart";
+        Cartbtn.setAttribute('class','Cartbtn');
+
+
+        Cartbtn.setAttribute('id',`${Rugby[i]._id}`);
+        
+       
+
+      
+
+        Cartbtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+       
+
+            var res = await fetch('/users/products/AddtoCart',{
+                method : 'post',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({id : id})
+            })
+
+            var data = await res.json();
+
+            if (data.success == true) {
+                location.reload();
+            }
+
+         
+            
+            
+            
+
+        })
+
+        var Buybtn = document.createElement('button');
+        Buybtn.innerHTML = "Buy";
+        Buybtn.setAttribute('class','Buybtn');
+
+        price_para.appendChild(Cartbtn);
+        price_para.appendChild(Buybtn);
 
         
 
