@@ -3,6 +3,7 @@ const router = express.Router();
 const Users_Controller = require('../controller/Users_Controller');
 const auth = require('../config/auth');
 const passport = require('passport');
+const admin_middleware = require('../config/verifyAdmin');
 
 
 
@@ -13,7 +14,7 @@ const passport = require('passport');
 router.get('/public_sign_up',Users_Controller.PublicSignUp);
 router.get('/public_sign_in',Users_Controller.public_sign_in);
 router.post('/public_sign_up_post',Users_Controller.public_sign_up);
-router.post('/public_sign_in_post',passport.authenticate('local',{failureRedirect : '/users/public_sign_in',failureFlash : 'Please give the correct credentials'}),Users_Controller.public_sign_in_post);
+router.post('/public_sign_in_post',admin_middleware.verifyPublicUser,passport.authenticate('local',{failureRedirect : '/users/public_sign_in',failureFlash : 'Please give the correct credentials'}),Users_Controller.public_sign_in_post);
 router.get('/profile/:id',auth.login,Users_Controller.profile);
 router.get('/logout',Users_Controller.logout);
 router.get('/forgotPassword',Users_Controller.forgotPassword);
@@ -32,7 +33,7 @@ router.get('/admin_sign_in',Users_Controller.AdminSignIn);
 
 router.get('/admin_sign_up',Users_Controller.AdminSignUp);
 
-router.post('/admin_sign_in_post',passport.authenticate('local',{failureRedirect : '/users/admin_sign_in',failureFlash : "Please Give the correct Credentials"}),Users_Controller.AdminSignInPost);
+router.post('/admin_sign_in_post',admin_middleware.verify,passport.authenticate('local',{failureRedirect : '/users/admin_sign_in',failureFlash : "Please Give the correct Credentials"}),Users_Controller.AdminSignInPost);
 
 router.post('/admin_sign_up_post',Users_Controller.AdminSignPost);
 

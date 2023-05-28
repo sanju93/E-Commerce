@@ -487,9 +487,11 @@
   }
 
   #form input:focus{
+
     outline: none;
     border : 2px solid darkmagenta;
     border-radius: 7px;
+
   }
 
   #submit_div input{
@@ -515,6 +517,7 @@
   }
   
   #create_btn{
+
     margin-left: 37%;
     background-color : darkmagenta;
     border:2px solid darkmagenta;
@@ -526,11 +529,13 @@
   
   }
   #create_btn:hover{
+
     color:lightgrey;
     
   }
 
-  .login_methods{
+  .login_methods {
+
     border: 2px solid white;
     margin-left: 30%;
     padding: 1%;
@@ -573,6 +578,8 @@
 @media only screen and (min-width: 1201px)  and (max-width : 1400px) {
 
     #container{
+
+      
         height: 50%;
         width: 70%;
         margin-top: 10px;
@@ -667,6 +674,8 @@
     margin-left : 24%;
   }
   .login_methods{
+
+
     border: 2px solid white;
     margin-left: 30%;
     padding: 1%;

@@ -94,11 +94,12 @@ module.exports.order = async (req,res) => {
 
     var product = await Product.findById(req.body.id);
     var price = product.price;
+    price = Number(price);
 
 var instance = new Razorpay({ key_id: 'rzp_test_4qPYOwauKaJykT', key_secret:'ZaPWbHjKiZCRn2dcsCjsNRAb' });
 
 var options = {
-  amount: price,  // amount in the smallest currency unit
+  amount: price * 100,  // amount in the smallest currency unit
   currency: "INR",
   receipt: "order_rcptid_11"
 };
@@ -108,7 +109,30 @@ instance.orders.create(options, function(err, order) {
         return;
     }
   console.log(order);
-  return res.status(200).json({orderId : order.id});
+  return res.status(200).json({orderId : order.id,productId : product.id,price:price});
 });
+
+}
+
+
+module.exports.Info = (req,res) => {
+
+
+
+
+    return res.render('info',{
+
+        title : "Order Info",
+        orderId : req.query.orderId,
+        productId : req.query.productId,
+        price : req.query.price
+    })
+
+}
+
+module.exports.productInfo = async (req,res) => {
+    var user = await User.findById(req.user.id);
+
+    return res.status(200).json({data : user});
 
 }

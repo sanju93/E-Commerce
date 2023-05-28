@@ -5,7 +5,7 @@ const Admin = require('../models/Admin');
 require('dotenv').config();
 passport.use(new passportLocal({usernameField : 'email'},async (email,password,done) => {
    try{
-        if (email == process.env.AdminEmail){
+        if (email === process.env.AdminEmail){
 
              var admin = await Admin.findOne({email : email});
 
