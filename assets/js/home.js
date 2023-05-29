@@ -125,7 +125,8 @@ window.addEventListener('load',async function(){
                     'Content-Type' : 'application/json'
                 },
                 body : JSON.stringify({
-                    id : id
+                    id : id,
+                    qty : 1
                 })
                 
                })
@@ -134,7 +135,7 @@ window.addEventListener('load',async function(){
                var data = await res.json();
 
 
-                window.location.href = `/users/products/Info?orderId=${data.orderId}&productId=${data.productId}&price=${price}`;
+                window.location.href = `/users/products/Info?orderId=${data.orderId}&productId=${data.productId}&price=${data.price}&qty=${data.qty}`;
 
 
 
@@ -251,6 +252,42 @@ window.addEventListener('load',async function(){
         Buybtn.innerHTML = "Buy";
         Buybtn.setAttribute('class','Buybtn');
 
+        Buybtn.setAttribute('id',`${FootBall[i]._id}`);
+
+
+
+        Buybtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+            
+
+            
+            
+            var res = await fetch(`/users/products/create/OrderId`,{
+             method : 'POST',
+             timeout : 0,
+             headers : {
+                 'Content-Type' : 'application/json'
+             },
+             body : JSON.stringify({
+                 id : id,qty : 1
+             })
+             
+            })
+
+
+            var data = await res.json();
+
+
+             window.location.href = `/users/products/Info?orderId=${data.orderId}&productId=${data.productId}&price=${data.price}&qty=${data.qty}`;
+
+
+        
+
+        })
+
+
+
         price_para.appendChild(Cartbtn);
         price_para.appendChild(Buybtn);
 
@@ -340,6 +377,40 @@ window.addEventListener('load',async function(){
         Buybtn.innerHTML = "Buy";
         Buybtn.setAttribute('class','Buybtn');
 
+        Buybtn.setAttribute('id',`${VolleyBall[i]._id}`);
+
+
+
+        Buybtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+            
+
+            
+            
+            var res = await fetch(`/users/products/create/OrderId`,{
+             method : 'POST',
+             timeout : 0,
+             headers : {
+                 'Content-Type' : 'application/json'
+             },
+             body : JSON.stringify({
+                 id : id,qty : 1
+             })
+             
+            })
+
+
+            var data = await res.json();
+
+
+             window.location.href = `/users/products/Info?orderId=${data.orderId}&productId=${data.productId}&price=${data.price}&qty=${data.qty}`;
+
+
+
+        })
+
+
         price_para.appendChild(Cartbtn);
         price_para.appendChild(Buybtn);
 
@@ -422,6 +493,41 @@ window.addEventListener('load',async function(){
         var Buybtn = document.createElement('button');
         Buybtn.innerHTML = "Buy";
         Buybtn.setAttribute('class','Buybtn');
+
+        Buybtn.setAttribute('id',`${Hockey[i]._id}`);
+
+
+
+
+        Buybtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+            
+
+            
+            
+            var res = await fetch(`/users/products/create/OrderId`,{
+             method : 'POST',
+             timeout : 0,
+             headers : {
+                 'Content-Type' : 'application/json'
+             },
+             body : JSON.stringify({
+                 id : id, qty : 1
+             })
+             
+            })
+
+
+            var data = await res.json();
+
+
+             window.location.href = `/users/products/Info?orderId=${data.orderId}&productId=${data.productId}&price=${data.price}&qty=${data.qty}`;
+
+
+        
+
+        })
 
         price_para.appendChild(Cartbtn);
         price_para.appendChild(Buybtn);
@@ -508,6 +614,40 @@ window.addEventListener('load',async function(){
         var Buybtn = document.createElement('button');
         Buybtn.innerHTML = "Buy";
         Buybtn.setAttribute('class','Buybtn');
+
+        Buybtn.setAttribute('id',`${BaseBall[i]._id}`);
+
+
+        Buybtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+            
+
+            
+            
+            var res = await fetch(`/users/products/create/OrderId`,{
+             method : 'POST',
+             timeout : 0,
+             headers : {
+                 'Content-Type' : 'application/json'
+             },
+             body : JSON.stringify({
+                 id : id,
+                 qty : 1
+             })
+             
+            })
+
+
+            var data = await res.json();
+
+
+             window.location.href = `/users/products/Info?orderId=${data.orderId}&productId=${data.productId}&price=${data.price}&qty=${data.qty}`;
+
+
+        
+
+        })
 
         price_para.appendChild(Cartbtn);
         price_para.appendChild(Buybtn);
@@ -596,6 +736,39 @@ window.addEventListener('load',async function(){
 
         price_para.appendChild(Cartbtn);
         price_para.appendChild(Buybtn);
+
+        Buybtn.setAttribute('id',`${Rugby[i]._id}`);
+
+        Buybtn.addEventListener('click',async function(e){
+
+            var id = e.target.getAttribute('id');
+            
+
+            
+            
+            var res = await fetch(`/users/products/create/OrderId`,{
+             method : 'POST',
+             timeout : 0,
+             headers : {
+                 'Content-Type' : 'application/json'
+             },
+             body : JSON.stringify({
+                 id : id,
+                 qty : 1
+             })
+             
+            })
+
+
+            var data = await res.json();
+
+
+             window.location.href = `/users/products/Info?orderId=${data.orderId}&productId=${data.productId}&price=${data.price}&qty=${data.qty}`;
+
+
+        
+
+        })
 
         
 

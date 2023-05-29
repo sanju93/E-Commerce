@@ -1,0 +1,66 @@
+.container1{
+    margin:  8% 12%;
+    border:1px solid black;
+    border-radius: 10px;
+}
+.card1{
+    height: 30%;
+    width : 100%;
+    background-color: darkmagenta;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.child{
+    color : white;
+    font-weight: 600;
+    margin-top: 1%;
+
+}
+
+.container2{
+    width : 100%;
+    height : 30%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.left{
+    height : 200px;
+    width : 200px;
+}
+
+.right {
+    height : 100px;
+    width :700px;
+}
+
+.right p{
+    font-weight: 600;
+}
+.right button{
+    width : 250px;
+    height: 40px;
+    background-color: darkmagenta;
+    color: white;
+    font-weight: 600;
+    margin-top: 5%;
+    border-radius: 10px;
+    border : 1px solid darkmagenta;
+}
+
+.right button:hover{
+    background-color: rgb(113, 34, 113);
+}
+
+.left img{
+    height : 150px;
+    width : 150px;
+    cursor: pointer;
+    margin : 5px;
+    margin-left: 10px;
+  }

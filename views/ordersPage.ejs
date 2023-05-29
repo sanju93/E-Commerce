@@ -1,0 +1,100 @@
+<link rel = "stylesheet" href="/css/orderPage.css">
+
+
+
+<% for (var i of orders) {%>
+
+    <% if (i.status) {%>
+
+    <div class = "container1">
+
+    
+
+    <div class = "card1">
+
+     <p class = "child">Order Placed: <%= i.orderPlaced %></p>
+     
+     <p class="child">Price : <%= i.price %></p>
+     <p class="child">SHIP To: <%= i.consumerName %></p>
+     <p class="child">Order # <%= i.orderId %></p>
+    
+    </div>
+    <div class = "container2">
+
+    <div class="left">
+
+        <img src="<%= i.image%>">
+      
+
+
+    </div>
+    <div class = "right">
+
+        <p><%=i.product_name%></p>
+        <a href = "#"><button>Track your package</button></a>
+        <a href = '/users/products/view/<%= i.productId %>'><button>view your Product</button></a>
+     
+
+    </div>
+
+    </div>
+
+
+    </div>
+
+    <%}%>
+
+  
+
+
+<%}%>
+
+
+<% for (var i of orders) {%>
+
+    <% if (!i.status) {%>
+
+    <div class = "container1">
+
+    
+
+    <div class = "card1">
+
+     <p class = "child">Order Placed: <%= i.orderPlaced %></p>
+     
+     <p class="child">Price : <%= i.price %></p>
+     <p class="child">SHIP To: <%= i.consumerName %></p>
+     <p class="child">Order # <%= i.orderId %></p>
+    
+    </div>
+    <div class = "container2">
+
+    <div class="left">
+
+        <img src="<%= i.image%>">
+      
+
+
+    </div>
+    <div class = "right">
+
+        <p><%=i.product_name%></p>
+        <button>Track your package</button>
+        <button>view your Product</button>
+     
+
+    </div>
+
+    </div>
+
+
+    </div>
+
+    <%}%>
+
+  
+
+
+<%}%>
+
+
