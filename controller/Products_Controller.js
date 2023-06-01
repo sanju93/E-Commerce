@@ -66,6 +66,7 @@ module.exports.deleteCartProducts = async (req,res) => {
 
     try{
 
+
     var user = await User.findById(req.user.id);
 
     var index = user.cart.indexOf(req.params.id);
@@ -79,7 +80,7 @@ module.exports.deleteCartProducts = async (req,res) => {
     }catch(err){
 
         console.log(err);
-        return res.status(200).json({success : false});
+        return res.status(401).json({success : false});
 
     }
 
@@ -95,12 +96,29 @@ module.exports.order = async (req,res) => {
     var qty = req.body.qty;
     
     var product = await Product.findById(req.body.id);
+     
+
+    if (Number(product.quantity) === 0){
+        req.flash('error','product has been sold out');
+        return res.status(401).json({success : true});
+    }
+
+    if (Number(product.quantity) < Number(qty)){
+        
+        req.flash('error','please decrese the quantity of product');
+        return res.status(401).json({success : true});
+    }
+ 
     var price = product.price;
+
+ 
   
     
     price = Number(price);
 
     price *= qty;
+
+
    
     
 
@@ -176,17 +194,23 @@ module.exports.payments = async (req,res) => {
         status : true,
         orderPlaced : date,
         qty : qty,
-        price : price
+        price : price,
+        Dispatch : false,
+        OutforDelivery : false,
+        Delivered : false
     });
 
     var user = await User.findById(req.user.id);
     user.orders.push(payments.id);
+    var index = user.cart.indexOf(productId);
+    user.cart.splice(index,1);
+
     user.save();
 
 
     var product = await Product.findById(productId);
 
-    product.quantity = Number(product.quantity) - 1;
+    product.quantity = Number(product.quantity) - qty;
     product.save();
 
 
@@ -226,7 +250,10 @@ module.exports.ordersPage = async (req,res) => {
            data.price = order.price;
            data.qty = order.qty;
            data.status = order.status;
-           data.productId = product.id
+           data.productId = product.id;
+           data.Dispatch = order.Dispatch;
+           data.delivered = order.Delivered;
+           data.OutforDelivery = order.OutforDelivery;
 
 
 
@@ -268,4 +295,53 @@ module.exports.ProductView =  async (req,res) => {
 
    
     
+}
+
+
+
+module.exports.Dispatch = async (req,res) => {
+
+    try{
+
+        var status = req.body.status;
+
+        var payment = await Payments.findById(req.body.id);
+    
+        if (status === 'Dispatch'){
+          
+             payment.Dispatch = true;
+             payment.save();
+             req.flash('success',`${payment.orderId} has been dispatched`);
+             return res.status(200).json({success : true});
+        }else if (status === 'OutForDelivery'){
+        
+    
+            payment.Dispatch = true;
+            payment.OutforDelivery = true;
+            payment.save();
+            req.flash('success',`${payment.orderId} has been Out for a Delivery`);
+            return res.status(200).json({success : true});
+    
+        }else if (status === 'Delivered'){
+ 
+            payment.Dispatch = true;
+            payment.OutforDelivery = true;
+            payment.Delivered = true;
+            payment.status = false;
+            payment.save();
+            req.flash('success',`${payment.orderId} has been Delivered`);
+            return res.status(200).json({success : true});
+    
+        }
+
+    }catch(err){
+
+        req.flash('error','something happened wrong');
+        console.log(err);
+        return res.status(401);
+
+    }
+
+
+
 }

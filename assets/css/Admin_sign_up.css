@@ -1,0 +1,99 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    background-color: #ffffff;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:darkmagenta;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+  
+   border-radius: 15px;
+   margin-top: 40px;
+ 
+   width : 50%;
+   height : 90%;
+   margin-left: 21%;
+  
+}
+#name{
+    border-radius: 30px;
+    transition: all .3s ease;
+    width : 80%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding : 1%
+}
+#name:hover{
+    transform: scale(1.05);
+    border-radius: 30px;
+    transition: all .3s ease;
+    border: 2px solid #ffffff;
+}
+#email{
+    border-radius: 30px;
+    transition: all .3s ease;
+    width : 80%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding : 1%
+}
+#email:hover{
+    transform: scale(1.05);
+    border-radius: 30px;
+    transition: all .3s ease;
+    border: 2px solid #ffffff;
+}
+#password{
+    border-radius: 30px;
+    transition: all .3s ease;
+    width : 80%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding : 1%
+}
+#password:hover{
+    transform: scale(1.05);
+    border-radius: 30px;
+    transition: all .3s ease;
+    border: 2px solid #ffffff;
+}
+#confirm_password{
+    border-radius: 30px;
+    transition: all .3s ease;
+    width : 80%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding : 1%
+}
+#confirm_password:hover{
+    transform: scale(1.05);
+    border-radius: 30px;
+    transition: all .3s ease;
+    border: 2px solid #ffffff;
+}
+#submit-btn{
+    background: transparent;
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 15px;
+    font-size: larger;
+    transition: all .3s ease;
+    width : 40%;
+    margin-bottom: 3%;
+}
+#submit-btn:hover{
+    background: transparent;
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 15px;
+    font-size: larger;
+    transition: all .3s ease;
+    transform: scale(1.05);
+}

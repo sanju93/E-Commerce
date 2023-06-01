@@ -33,6 +33,15 @@ const paymentSchema = new mongoose.Schema({
     qty : {
        type : Number,
        require : true
+    },
+    Dispatch : {
+        type : Boolean
+    },
+    OutforDelivery : {
+        type : Boolean
+    },
+    Delivered : {
+        type : Boolean
     }
     
 

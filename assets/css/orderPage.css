@@ -51,6 +51,7 @@
     margin-top: 5%;
     border-radius: 10px;
     border : 1px solid darkmagenta;
+    margin-bottom: 3%;
 }
 
 .right button:hover{
@@ -63,4 +64,31 @@
     cursor: pointer;
     margin : 5px;
     margin-left: 10px;
-  }
+}
+
+#track{
+
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+#track p{
+    background-color: darkmagenta;
+    color : white;
+    width : 50%;
+    text-align: center;
+    padding: 1%;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+#track p img{
+
+    width : 20px;
+    height : 20px;
+   
+
+}
+
+

@@ -376,13 +376,29 @@ visibility: hidden;
         padding-bottom: 1%;
         display : flex;
         font-weight: 700;
+        z-index:100;
      
 
     }
+    #account_btn{
+      background-color: darkmagenta;
+      color : darkmagenta;
+    }
+
+    #account-btn {
+      color : white;
+    }
+
+    #manu-option li a{
+      color : black;
+      font-weight: bold;
+    }
     #navbar img{
-      height : 1%;
-      width: 1%;
-      margin-left: 9%;
+      height : 8%;
+      width: 8%;
+      margin-left: 1%;
+      margin-top : -1%;
+
     }
     #navbar #home{
       margin-left: 6%;
@@ -488,6 +504,12 @@ visibility: hidden;
 
   background-color: darkmagenta;
 
+}
+
+
+#navbar{
+  position: sticky;
+  top: 0;
 }
 
 

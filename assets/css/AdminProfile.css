@@ -3,4 +3,205 @@ label{
 }
 
 
+#users-container {
+    height: 90%;
+    width : 100%;
+  
+}
+
+.child1 {
+    height: 20%;
+    width: inherit;
+    cursor: pointer;
+}
+
+.child2 {
+    height: 40%;
+    width: inherit;
+   
+}
+
+.child2 img{
+    height: 200px;
+    width: 200px;
+}
+
+.child2 button{
+    background-color: darkmagenta;
+    height: 50px;
+    width : 150px;
+    border-radius: 10px;
+    border : 1px solid darkmagenta;
+    margin : 10px;
+    font-weight: 600;
+    color : white;
+}
+
+.child2{
+ text-align: center;
+ width : 90%;
+    
+}
+
+.child2 p{
+    font-weight : 600;
+
+}
+
+.child1{
+    font-weight: 500;
+    
+}
+
+
+body{
+    background-color:#F2F0EB;
+   }
+    label{
+    font-weight: bolder;
+    color: #ffffff;
+    margin-top: 25px;
+}
+#Addproduct-btn{
+    border: 3px solid darkmagenta;
+    border-radius: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: darkmagenta;
+   margin: 50px;
+   margin-left: 10px;
+   transition: all .3s ease;
+}
+#Addproduct-btn:hover{
+    border: 3px solid darkmagenta;
+    border-radius: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: darkmagenta;
+   margin: 50px;
+   margin-left: 10px;
+   transition: all .3s ease-in-out;
+   transform: scale(1.05);
+}
+form{
+    background-color:darkmagenta;
+}
+#name{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#name:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#picture{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#picture:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#types{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#types:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#price{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#price:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#Brand{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#Brand:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#weight{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#weight:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#quantity{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#quantity:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#Colour{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#Colour:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#size{
+    transition: all .3s ease;
+    font-weight: bold;
+    
+}
+#size:hover{
+    transition: all .3s ease;
+    font-weight: bold;
+    transform: scale(1.025);
+  
+}
+#submit-btn{
+    transition: all .3s ease;
+    font-weight: bolder;
+    border: 5px solid #ffffff;
+    background: transparent;
+    border-radius: 15px;
+    
+}
+#submit-btn:hover{
+    transition: all .3s ease;
+    font-weight: bolder;
+    border: 5px solid #ffffff;
+    background: transparent;
+    border-radius: 15px;
+    transform: scale(1.025);
+  
+}
+
+
 

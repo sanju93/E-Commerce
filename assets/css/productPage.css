@@ -1,0 +1,72 @@
+.container1{
+
+    display : flex;
+    flex-direction: row;
+    height : 90%;
+    width : 90%;
+
+}
+
+.child{
+
+
+    height : 480px;
+    width : 500px;
+    border: 1px solid black;
+    margin-left: 1%;
+    margin-top: 0.5%;
+    flex-basis: auto;
+
+}
+
+#product_image{
+    height : 80%;
+    width : 80%;
+}
+
+.child p{
+    font-weight: 700;
+    font-size: large;
+   
+}
+
+
+
+.info p{
+    margin-left: 3%;
+}
+
+
+
+.child input{
+    width : 30px;
+}
+
+.child input:focus{
+    border-color: darkmagenta;
+}
+
+.child button{
+    background: darkmagenta;
+    border : 1px solid darkmagenta;
+    border-radius: 10px;
+    color : white;
+    font-weight: 700;
+    height : 50px;
+    width : 300px;
+    margin-left: 100px;
+    margin-top : 20px;
+}
+
+#productId{
+    display : none;
+}
+
+
+
+
+
+
+
+
+

@@ -8,6 +8,7 @@ let crypto = require('crypto');
 require('dotenv').config();
 var {Transform} = require('stream');
 let Product = require('../models/Product');
+let Payment = require('../models/Payments');
 const path = require('path');
 
 
@@ -372,47 +373,83 @@ module.exports.AdminSignInPost = (req,res) => {
 
 module.exports.AdminProfile = async (req,res) => {
 
-   
 
-   
-  
-    
+ 
 
-    
-    return res.render('AdminProfile',{
+   return res.render('AdminProfile',{
         title : 'Admin Profile',
        
     });
 }
 
 
+
+
 module.exports.AdminData = async (req,res) => {
 
-    const TransformData = new Transform({objectMode : true});
-    TransformData.isWritten = false;
+   try{
 
-    TransformData._transform = function(chunk,encoding,callback){
+    var users = await User.find({});
+    var products = [];
 
-        if (!this.isWritten){
-            this.isWritten = true;
-            callback(null, '[' + JSON.stringify(chunk))
-        }else{
-            callback(null,','+JSON.stringify(chunk));
-        }
+    for (let i = 0; i < users.length; i++) {
+        var payments = users[i].orders;
+        var userData = [];
+
+        for (let j = 0; j < payments.length; j++) {
 
         
+
+
+        var payment = await Payment.findById(payments[j]);
+ 
+        if (payment.status){
+            var product = await Product.findById(payment.product);
+
+            userData.push({
+                productId : product.id,
+                orderId : payment.orderId,
+                price : payment.price,
+                qty : payment.qty,
+                paymentId : payment.id,
+                consumerName : users[i].name,
+                productImage : product.image,
+                consumerEmail : users[i].email,
+                orderPlaced : payment.orderPlaced,
+                sportType : product.sportType,
+                productName : product.name,
+                dispatch : payment.Dispatch,
+                outfordelivery : payment.OutforDelivery,
+                delivered : payment.Delivered
+            
+            })
+
+
+        }
+
     }
 
-    TransformData._flush = function(callback){
-        callback(null,']');
+    if (userData.length !== 0){
+        
+       products.push(userData);
+
     }
 
-  
 
-    var users = User.find().cursor().pipe(TransformData);
 
-    users.pipe(res);
+    }
 
+   
+
+    return res.status(200).json({products});
+
+
+   }catch(err) {
+      console.log(err);
+      return res.status(401).json({success : false});
+   }
+
+   
    
   
     

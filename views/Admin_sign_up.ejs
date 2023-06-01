@@ -1,17 +1,10 @@
-<h1>Sign up form</h1>
+
+<link rel = "stylesheet" href = "/css/Admin_sign_up.css">
 <form action="/users/admin_sign_up_post" method="post">
-    <label for = "name">Name:</label>
-    <input type = 'text' id = "name" name = "name" required>  
-     <label for = "email">Email:</label>
-    <input type = 'email' id = "email" name = "email">  
-  
-    <label for = "password">Password:</label>
-    <input type = 'password' id = "password" required name = "password">  
-  
-  
-    <label for = "confirm_password">Confirm Password:</label>
-    <input type = 'password' id = "confirm_password" required name = "confirm_password">  
-  
-   
-    <input type = 'submit' value="Sign In">  
+    <h1>Sign up</h1>
+    <input type = 'text' id = "name" name = "name"  placeholder= "NAME" required>  
+    <input type = 'email' id = "email" name = "email" placeholder="EMAIL" required>  
+    <input type = 'password' id = "password" required name = "password" placeholder="password">  
+    <input type = 'password' id = "confirm_password" required name = "confirm_password" placeholder="confirm_password">  
+    <input type = 'submit' value="Sign In" id="submit-btn">  
   </form>

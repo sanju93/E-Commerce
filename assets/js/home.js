@@ -2,6 +2,7 @@
 
 
 window.addEventListener('load',async function(){
+    
     var res = await fetch('/products');
     var data = await res.json();
 
@@ -41,6 +42,11 @@ window.addEventListener('load',async function(){
         
         card.setAttribute('class','cards');
 
+     
+
+
+
+
         
        
        
@@ -59,6 +65,9 @@ window.addEventListener('load',async function(){
         product_img.setAttribute('src',`../images/products_images/${type}/${image_name}`);
         let product_name = document.createElement('p')
         let price_para = document.createElement('p');
+
+        let a1 = document.createElement('a');
+        a1.setAttribute('href',`/users/products/view/${Cricket[i]._id}`);
 
 
         product_name.innerHTML = name;
@@ -135,7 +144,14 @@ window.addEventListener('load',async function(){
                var data = await res.json();
 
 
+               if (data.success === true){
+                 window.location.href = '/';
+               }else{
                 window.location.href = `/users/products/Info?orderId=${data.orderId}&productId=${data.productId}&price=${data.price}&qty=${data.qty}`;
+
+               }
+
+        
 
 
 
@@ -160,9 +176,11 @@ window.addEventListener('load',async function(){
 
 
         
-
-        card.appendChild(product_img);
-        card.appendChild(product_name);
+        a1.appendChild(product_img);
+        a1.appendChild(product_name);
+        // card.appendChild(product_img);
+        // card.appendChild(product_name);
+        card.appendChild(a1);
         card.appendChild(price_para);
 
         price_para.appendChild(Cartbtn);
@@ -202,13 +220,19 @@ window.addEventListener('load',async function(){
         let price_para = document.createElement('p');
 
 
+        let a1 = document.createElement('a');
+        a1.setAttribute('href',`/users/products/view/${FootBall[i]._id}`);
+
+
         product_name.innerHTML = name;
         price_para.innerHTML = 'INR.' + price;
 
         
-
-        card.appendChild(product_img);
-        card.appendChild(product_name);
+        a1.appendChild(product_img);
+        a1.appendChild(product_name);
+        card.appendChild(a1);
+        // card.appendChild(product_img);
+        // card.appendChild(product_name);
         card.appendChild(price_para);
 
         var Cartbtn = document.createElement('button');
@@ -323,14 +347,25 @@ window.addEventListener('load',async function(){
         let product_name = document.createElement('p')
         let price_para = document.createElement('p');
 
+        let a1 = document.createElement('a');
+        a1.setAttribute('href',`/users/products/view/${VolleyBall[i]._id}`);
+
 
         product_name.innerHTML = name;
         price_para.innerHTML = 'INR.' + price;
 
+        a1.appendChild(product_img);
+        a1.appendChild(product_name)
+
+        card.appendChild(a1);
+
+
         
 
-        card.appendChild(product_img);
-        card.appendChild(product_name);
+        
+
+        // card.appendChild(product_img);
+        // card.appendChild(product_name);
         card.appendChild(price_para);
 
 
@@ -448,10 +483,15 @@ window.addEventListener('load',async function(){
         product_name.innerHTML = name;
         price_para.innerHTML = 'INR.' + price;
 
-        
+        let a1 = document.createElement('a');
+        a1.setAttribute('href',`/users/products/view/${Hockey[i]._id}`);
 
-        card.appendChild(product_img);
-        card.appendChild(product_name);
+        
+        a1.appendChild(product_img);
+        a1.appendChild(product_name);
+        card.appendChild(a1);
+        // card.appendChild(product_img);
+        // card.appendChild(product_name);
         card.appendChild(price_para);
 
         var Cartbtn = document.createElement('button');
@@ -568,10 +608,18 @@ window.addEventListener('load',async function(){
         product_name.innerHTML = name;
         price_para.innerHTML = 'INR.' + price;
 
+        let a1 = document.createElement('a');
+        a1.setAttribute('href',`/users/products/view/${BaseBall[i]._id}`);
+
+        
+        a1.appendChild(product_img);
+        a1.appendChild(product_name);
+        card.appendChild(a1);
+
         
 
-        card.appendChild(product_img);
-        card.appendChild(product_name);
+        // card.appendChild(product_img);
+        // card.appendChild(product_name);
         card.appendChild(price_para);
 
         var Cartbtn = document.createElement('button');
@@ -687,10 +735,18 @@ window.addEventListener('load',async function(){
         product_name.innerHTML = name;
         price_para.innerHTML = 'INR.' + price;
 
+        let a1 = document.createElement('a');
+        a1.setAttribute('href',`/users/products/view/${Rugby[i]._id}`);
+
+        
+        a1.appendChild(product_img);
+        a1.appendChild(product_name);
+        card.appendChild(a1);
+
         
 
-        card.appendChild(product_img);
-        card.appendChild(product_name);
+        // card.appendChild(product_img);
+        // card.appendChild(product_name);
         card.appendChild(price_para);
 
         var Cartbtn = document.createElement('button');
@@ -789,4 +845,112 @@ window.addEventListener('load',async function(){
     
 
 
+})
+
+
+
+var search_box = document.getElementById('search-box');
+
+
+search_box.addEventListener('keyup',function(e){
+
+
+    var value = e.target.value.toUpperCase();
+   
+    var Cricketdiv = document.getElementById('cricket');
+    var FootBalldiv = document.getElementById('FootBall');
+    var volleyBallDiv = document.getElementById('VolleyBall');
+    var HockeyDiv = document.getElementById('Hockey');
+    
+    var BaseballDiv = document.getElementById('BaseBall');
+    var RugByDiv = document.getElementById('Rugby');
+
+    var a = 'CRICKET';
+    var b = 'FOOTBALL';
+    var c = 'VOLLEYBALL';
+    var d = 'HOCKEY';
+    var e = 'BASEBALL';
+    var f = 'RUGBY';
+
+   if(value === a){
+
+        Cricketdiv.classList.remove('filter');
+        FootBalldiv.classList.add('filter');
+        volleyBallDiv.classList.add('filter');
+        HockeyDiv.classList.add('filter');
+        BaseballDiv.classList.add('filter');
+        RugByDiv.classList.add('filter');
+
+    }else if(value === b){
+
+        FootBalldiv.classList.remove('filter');
+        Cricketdiv.classList.add('filter');
+        volleyBallDiv.classList.add('filter');
+        HockeyDiv.classList.add('filter');
+        BaseballDiv.classList.add('filter');
+        RugByDiv.classList.add('filter');
+
+    }else if (value === c){
+
+        volleyBallDiv.classList.remove('filter');
+
+        Cricketdiv.classList.add('filter');
+
+        FootBalldiv.classList.add('filter');
+        HockeyDiv.classList.add('filter');
+        BaseballDiv.classList.add('filter');
+        RugByDiv.classList.add('filter');
+
+    }else if (value === d){
+
+        HockeyDiv.classList.remove('filter');
+        
+        Cricketdiv.classList.add('filter');
+        volleyBallDiv.classList.add('filter');
+        
+        FootBalldiv.classList.add('filter');
+       
+        BaseballDiv.classList.add('filter');
+        RugByDiv.classList.add('filter');
+    }else if (value === e){
+        BaseballDiv.classList.remove('filter');
+
+        Cricketdiv.classList.add('filter');
+        volleyBallDiv.classList.add('filter');
+        
+        FootBalldiv.classList.add('filter');
+        HockeyDiv.classList.add('filter');
+       
+       
+        RugByDiv.classList.add('filter');
+
+    }else if (value === f){
+
+        RugByDiv.classList.remove('filter');
+        
+        Cricketdiv.classList.add('filter');
+        volleyBallDiv.classList.add('filter');
+        
+        FootBalldiv.classList.add('filter');
+        HockeyDiv.classList.add('filter');
+        
+        BaseballDiv.classList.add('filter');
+       
+       
+      
+    } else if (value === '') {
+
+
+
+        Cricketdiv.classList.remove('filter');
+        volleyBallDiv.classList.remove('filter');
+        
+        FootBalldiv.classList.remove('filter');
+        HockeyDiv.classList.remove('filter');
+        
+        BaseballDiv.classList.remove('filter');
+            
+        RugByDiv.classList.remove('filter');
+
+    }
 })

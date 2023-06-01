@@ -1,0 +1,44 @@
+body{
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   
+}
+
+#form{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex;
+    align-items: flex;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: darkmagenta;
+    margin: 100px;
+    height: 200px;
+    width: 30%;
+    border: 5px solid darkmagenta;
+    border-radius: 10px;
+}
+#email{
+    margin-top: 10%;
+    border-radius: 10px;
+    border : 1px solid white;
+    padding: 1%;
+}
+#email:focus{
+    color: white;
+}
+#linkbtn{
+    transition: all .3s ease;
+    margin-top: 10%;
+    background-color: darkmagenta;
+
+    border : 2px solid white;
+    border-radius: 10px;
+    color : white;
+}
+#linkbtn:hover{
+    transform: scale(1.025);
+    transition: all .3s ease;
+}

@@ -1,1 +1,63 @@
-<h1><%= product %></h1>
+<link rel="stylesheet" href = '/css/productPage.css'>
+
+<p id = "productId"><%= product._id %></p>
+
+<div class="container1">
+
+    <div class = "child">
+        <p><%=product.name %></p>
+
+        <img src = '/images/products_images/<%= product.sportType %>/<%= product.image%>' id = "product_image">
+
+    </div>
+
+    <div class = "child" id = "right">
+        <div class="info">
+         
+        <p>Brand : <%= product.Brand%></p>
+        <hr>
+
+        <p>Price : <%= product.price %>Rs</p>
+        <hr>
+
+        <p>Colour : <%= product.Colour %></p>
+        <hr>
+      
+        <p>Weight : <%= product.weight %></p>
+        <hr>
+       <p>Quantity:
+
+      
+           
+              <img src = "https://cdn-icons-png.flaticon.com/128/43/43625.png" id = "minus" height = "10px" width="10px" style="cursor : pointer;">
+     
+               <input type = "text" value = '1' disabled id = "textBox">
+         
+
+               <img src = "https://cdn-icons-png.flaticon.com/128/748/748113.png" id = "plus" height = "10px" width = "10px" style="cursor : pointer;">
+
+
+
+        </p>
+        <hr>
+
+       
+                 
+            
+
+     
+
+       
+        </div>
+
+        <button id = "BuyBtn">Buy</button>
+        <button id = "CartBtn">Add to Cart</button>
+
+
+    </div>
+
+
+
+</div>
+
+<script src="/js/profilePage.js"></script>
